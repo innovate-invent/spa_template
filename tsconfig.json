@@ -13,18 +13,23 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "vuetify"
     ],
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "#/*": [
+        "static/*"
       ]
     },
     "lib": [
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost"
+      "scripthost",
+      "es2019"
     ]
   },
   "include": [

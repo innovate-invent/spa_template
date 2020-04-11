@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app id="app">
+    <v-app-bar absolute app dense>
+      <Navigation :routes="routes" />
+    </v-app-bar>
+
+    <v-content>
+      <v-container fluid>
+        <router-view :class="$route.meta && $route.meta.slug || ''" />
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+    import {Component, Vue} from 'vue-property-decorator';
+    import Navigation from "@/components/Navigation.vue";
 
-#nav {
-  padding: 30px;
+    import routes from '@/router/main';
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    @Component({
+        components: {Navigation}
+    })
+    export default class App extends Vue {
+        private routes = routes;
     }
-  }
-}
+</script>
+
+<style scoped>
+
+</style>
+
+<style lang="scss">
+  @import '@/assets/main.scss';
 </style>

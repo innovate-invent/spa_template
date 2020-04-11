@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -14,6 +15,7 @@
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.1",
     "vue-router": "^3.1.6",
+    "vuetify": "^2.2.21",
     "vuex": "^3.1.3"
   },
   "devDependencies": {
@@ -33,9 +35,13 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.2.2",
+    "frontmatter-markdown-loader": "^3.3.0",
+    "markdown-it-deflist": "^2.0.3",
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
+    "material-design-icons-iconfont": "^5.0.1",
     "sass-loader": "^8.0.2",
+    "string-replace-loader": "^2.3.0",
     "typescript": "~3.8.3",
     "vue-template-compiler": "^2.6.11"
   },
@@ -54,7 +60,43 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {},
+    "rules": {
+      "vue/camelcase": "warn",
+      "@typescript-eslint/camelcase": "warn",
+      "@typescript-eslint/ban-ts-ignore": "warn",
+      "@typescript-eslint/explicit-function-return-type": [
+        "warn",
+        {
+          "allowTypedFunctionExpressions": true
+        }
+      ],
+      "vue/comma-dangle": "error",
+      "vue/component-tags-order": [
+        "error",
+        {
+          "order": [
+            "template",
+            "script",
+            "style"
+          ]
+        }
+      ],
+      "vue/eqeqeq": "warn",
+      "vue/key-spacing": "warn",
+      "vue/no-deprecated-scope-attribute": "warn",
+      "vue/no-deprecated-slot-attribute": "warn",
+      "vue/no-deprecated-slot-scope-attribute": "warn",
+      "vue/padding-line-between-blocks": "warn",
+      "vue/valid-v-bind-sync": "error",
+      "vue/valid-v-slot": "error",
+      "vue/singleline-html-element-content-newline": "off",
+      "vue/max-attributes-per-line": [
+        "error",
+        {
+          "singleline": 6
+        }
+      ]
+    },
     "overrides": [
       {
         "files": [

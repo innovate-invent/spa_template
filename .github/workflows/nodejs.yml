@@ -1,0 +1,29 @@
+name: Autobuild
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    #- name: Checkout submodules
+    #  uses: textbook/git-checkout-submodule-action@2.0.0
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: npm install, build
+      run: |
+        yarn run ci
+        yarn run build --if-present
+      env:
+        CI: true
+    - name: GitHub Pages Deploy
+      uses: maxheld83/ghpages@v0.2.1
+      env:
+        BUILD_DIR: dist/
+        GH_PAT: ${{ secrets.GH_PAT }}
