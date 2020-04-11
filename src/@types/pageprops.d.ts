@@ -1,5 +1,5 @@
-import {RouteConfig} from "vue-router";
-import FrontMatter from "frontmatter-markdown-loader";
+import { RouteConfig } from 'vue-router';
+import FrontMatter from 'frontmatter-markdown-loader';
 
 export interface PageProps {
     title: string;

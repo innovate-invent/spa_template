@@ -1,6 +1,6 @@
 declare module '*.html' {
     const value: string;
-    export default value
+    export default value;
 }
 
 declare module '*.json' {
@@ -10,7 +10,7 @@ declare module '*.json' {
 }
 
 declare module '*.md' {
-    import FrontMatter from 'frontmatter-markdown-loader'
+    import FrontMatter from 'frontmatter-markdown-loader';
     const value: FrontMatter;
     export default value;
 }
