@@ -18,7 +18,7 @@
         if (location.protocol !== 'https:') {
           const u = new URL(location.href);
           u.protocol = 'https:';
-          history.replaceState(null, null, u.href);
+          window.location.replace(u.href);
         }
       })();
     </script>
