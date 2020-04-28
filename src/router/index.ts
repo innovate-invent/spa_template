@@ -8,7 +8,8 @@ let routes: RouteConfig[][] = [];
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 (context => {
     context.keys().forEach(key => {
-        routes.push(context(key));
+        const route = context(key).default;
+        if (route) routes.push(route);
     });
 })(require.context('.', true, /(?!index)\.ts$/));
 
